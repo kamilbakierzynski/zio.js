@@ -13,7 +13,7 @@ class ZIO<R, E, A> {
     return new ZIO((input: R) => this.run(input).then((val) => val.map(f)));
   }
 
-  leftMap<F>(f: (left: E) => F): ZIO<R, F, A> {
+  leftMap<L>(f: (left: E) => L): ZIO<R, L, A> {
     return new ZIO((input: R) => this.run(input).then((val) => val.leftMap(f)));
   }
 
