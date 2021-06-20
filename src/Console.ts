@@ -11,7 +11,7 @@ class Console {
     return new IO(() => Either.Right(console.log(val)));
   }
   static flatZIOLog<A>(val: A) {
-    return new ZIO(() => Promise.resolve(Either.Right(val)));
+    return new ZIO(() => Promise.resolve(Either.Right(console.log(val))));
   }
   static logEither(either: Either<any, any>) {
     either.cata(console.log, console.log);
