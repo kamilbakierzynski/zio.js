@@ -26,8 +26,8 @@ class ZIO<R, E, A> {
     );
   }
 
-  chain<E1, B>(aio: ZIO<A, E1, B>) {
-    return this.flatMap((value) => aio.provide(value));
+  chain<E1, B>(zio: ZIO<A, E1, B>) {
+    return this.flatMap((value) => zio.provide(value));
   }
 
   get either() {

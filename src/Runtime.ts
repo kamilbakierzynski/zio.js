@@ -35,6 +35,10 @@ class Runtime {
   static unsafeRunAsync<E, A>(zio: ZIO<undefined, E, A>) {
     return zio.run(undefined).then((x) => x.cata(throwError, identity));
   }
+
+  static safeRunAsync<A>(zio: ZIO<undefined, any, A>) {
+    return zio.run(undefined).then((x) => x.cata(console.log, identity));
+  }
 }
 
 export default Runtime;
